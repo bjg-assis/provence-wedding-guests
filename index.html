@@ -10,15 +10,15 @@
     />
     <style>
       :root {
-        --bg: #f3f8ff;
-        --surface: #ffffff;
-        --surface-soft: #fbf8f3;
-        --ink: #24211d;
-        --muted: #6f675b;
-        --line: #ddd2c1;
-        --accent: #7b674c;
-        --accent-strong: #625039;
-        --accent-soft: #efe6d9;
+        --bg: #f6f3ee;
+        --surface: #fffefc;
+        --surface-soft: #f7f2ea;
+        --ink: #1f1b17;
+        --muted: #675f56;
+        --line: #d8cfc2;
+        --accent: #3f3428;
+        --accent-strong: #2f261d;
+        --accent-soft: #ece3d7;
         --ok: #2f6b45;
       }
 
@@ -30,7 +30,7 @@
         color: var(--ink);
         font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
         background:
-          radial-gradient(circle at 15% -5%, #eaf3ff 0%, rgba(234, 243, 255, 0) 40%),
+          radial-gradient(circle at 12% -8%, #efe8dd 0%, rgba(239, 232, 221, 0) 44%),
           var(--bg);
       }
 
@@ -51,9 +51,10 @@
         z-index: 60;
         border: 1px solid var(--line);
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.94);
+        background: rgba(255, 254, 250, 0.96);
         backdrop-filter: blur(7px);
         margin-bottom: 14px;
+        box-shadow: 0 4px 16px rgba(31, 27, 23, 0.05);
       }
 
       .topbar {
@@ -68,24 +69,13 @@
         font-size: 1rem;
         color: var(--accent-strong);
         font-weight: 700;
+        letter-spacing: 0.02em;
       }
 
       .topbar-actions {
         display: flex;
         align-items: center;
         gap: 8px;
-      }
-
-      .rsvp-btn {
-        text-decoration: none;
-        border: 1px solid #d7cab6;
-        background: var(--accent-soft);
-        color: var(--accent-strong);
-        border-radius: 999px;
-        padding: 7px 11px;
-        font-size: 0.82rem;
-        font-weight: 700;
-        white-space: nowrap;
       }
 
       .menu-btn {
@@ -115,6 +105,12 @@
         padding: 8px 12px;
         font-size: 0.88rem;
         font-weight: 600;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+
+      .nav-links a:hover {
+        background: #e6dbcc;
+        transform: translateY(-1px);
       }
 
       .hero {
@@ -139,7 +135,7 @@
 
       .hero-copy {
         padding: 22px 20px 24px;
-        background: linear-gradient(180deg, #fff, #faf4eb);
+        background: linear-gradient(180deg, #fffefb, #f5efe6);
       }
 
       h1 {
@@ -184,6 +180,7 @@
         background: var(--surface);
         padding: 18px;
         margin-bottom: 12px;
+        box-shadow: 0 3px 14px rgba(31, 27, 23, 0.04);
       }
 
       h2 {
@@ -293,7 +290,6 @@
 
       @media (max-width: 760px) {
         .menu-btn { display: inline-block; }
-        .rsvp-btn { font-size: 0.78rem; }
 
         .nav-links {
           display: none;
@@ -323,7 +319,6 @@
         <div class="topbar">
           <div class="brand serif">Josefine &amp; Ben — Provence</div>
           <div class="topbar-actions">
-            <a class="rsvp-btn" href="https://withjoy.com/josefine-and-ben/" target="_blank" rel="noopener noreferrer">RSVP &amp; Updates ↗</a>
             <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu-links">Menu</button>
           </div>
         </div>
@@ -334,6 +329,7 @@
           <a href="#dress">Dress code</a>
           <a href="#contacts">Contacts</a>
           <a href="#faq">FAQ</a>
+          <a href="https://withjoy.com/josefine-and-ben/" target="_blank" rel="noopener noreferrer">RSVP &amp; Updates ↗</a>
         </div>
       </nav>
 
