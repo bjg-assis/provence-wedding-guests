@@ -335,7 +335,7 @@
 
       <section class="hero">
         <div class="hero-image">
-          <img src="./assets/hero-couple.jpg" alt="Josefine and Ben together" loading="eager" onerror="this.style.display='none'" />
+          <img src="./assets/hero-provence.png" alt="Château Les Oliviers de Salettes in Provence" loading="eager" onerror="this.style.display='none'" />
         </div>
         <div class="hero-copy">
           <h1 class="serif">Provence Wedding Weekend</h1>
@@ -386,6 +386,10 @@
           </article>
         </div>
         <p class="small" style="margin-top:10px;">Final event details and calendar links remain on Joy.</p>
+      </section>
+
+      <section class="lavender" aria-label="Josefine and Ben laughing together">
+        <img src="./assets/hero-couple.jpg" alt="Josefine and Ben laughing together" loading="lazy" />
       </section>
 
       <section id="weather" class="section">
@@ -595,16 +599,8 @@
         const venueLat = 44.532;
         const venueLon = 4.952;
 
-        const weddingStart = new Date('2026-06-12T00:00:00');
-        const today = new Date();
-        const daysToWedding = Math.ceil((weddingStart - today) / (1000 * 60 * 60 * 24));
-
-        let url;
-        if (daysToWedding <= 16) {
-          url = 'https://api.open-meteo.com/v1/forecast?latitude=' + venueLat + '&longitude=' + venueLon + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,windspeed_10m_max,uv_index_max&timezone=Europe%2FParis&start_date=2026-06-12&end_date=2026-06-14';
-        } else {
-          url = 'https://api.open-meteo.com/v1/forecast?latitude=' + venueLat + '&longitude=' + venueLon + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,windspeed_10m_max,uv_index_max&forecast_days=3&timezone=Europe%2FParis';
-        }
+        const targetDates = ['2026-06-12', '2026-06-13', '2026-06-14'];
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + venueLat + '&longitude=' + venueLon + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,windspeed_10m_max,uv_index_max&timezone=Europe%2FParis&start_date=2026-06-12&end_date=2026-06-14';
 
         fetch(url)
           .then((r) => {
@@ -613,23 +609,27 @@
           })
           .then((data) => {
             const d = data.daily;
-            if (!d || !d.time || !d.time.length) throw new Error('No forecast data');
+            const dateToIndex = new Map();
+            if (d?.time) {
+              d.time.forEach((dt, idx) => dateToIndex.set(dt, idx));
+            }
 
-            const cards = d.time.map((date, i) => {
-              const code = d.weather_code?.[i];
-              const icon = weatherIconMap[code] || '❓';
-              const desc = weatherCodeMap[code] || 'Forecast unavailable';
-              const tMax = d.temperature_2m_max?.[i];
-              const tMin = d.temperature_2m_min?.[i];
-              const rain = d.precipitation_probability_max?.[i];
-              const wind = d.windspeed_10m_max?.[i];
-              const uv = d.uv_index_max?.[i];
+            const cards = targetDates.map((date) => {
+              const i = dateToIndex.has(date) ? dateToIndex.get(date) : -1;
+              const code = i >= 0 ? d.weather_code?.[i] : undefined;
+              const icon = weatherIconMap[code] || '🕊️';
+              const desc = i >= 0 ? (weatherCodeMap[code] || 'Forecast unavailable') : 'Forecast not published yet';
+              const tMax = i >= 0 ? d.temperature_2m_max?.[i] : undefined;
+              const tMin = i >= 0 ? d.temperature_2m_min?.[i] : undefined;
+              const rain = i >= 0 ? d.precipitation_probability_max?.[i] : undefined;
+              const wind = i >= 0 ? d.windspeed_10m_max?.[i] : undefined;
+              const uv = i >= 0 ? d.uv_index_max?.[i] : undefined;
 
               return `
                 <article class="weather-card">
                   <div class="wx-title">${icon} ${dayName(date)}</div>
                   <div class="wx-main">${desc}</div>
-                  <div class="wx-main">${Math.round(tMin)}°C – ${Math.round(tMax)}°C</div>
+                  <div class="wx-main">${(tMin ?? '?')}°C – ${(tMax ?? '?')}°C</div>
                   <div class="wx-main">Rain chance: ${rain ?? '?'}%</div>
                   <div class="wx-main">Wind: ${wind ? Math.round(wind) + ' km/h' : '?'}</div>
                   <div class="wx-main">UV max: ${uv ?? '?'}</div>
@@ -638,17 +638,22 @@
             });
 
             gridEl.innerHTML = cards.join('');
-
-            if (daysToWedding <= 16) {
-              statusEl.textContent = 'Wedding-weekend forecast loaded.';
-            } else {
-              statusEl.textContent = 'Live short-range forecast loaded (wedding-weekend forecast will appear automatically when in range).';
-            }
+            statusEl.textContent = 'Forecast target locked to 12–14 June.';
             statusEl.classList.add('ok');
           })
           .catch(() => {
-            statusEl.textContent = 'Could not load weather right now. Please try again later.';
-            gridEl.innerHTML = '';
+            const cards = targetDates.map((date) => `
+              <article class="weather-card">
+                <div class="wx-title">🕊️ ${dayName(date)}</div>
+                <div class="wx-main">Forecast not available right now</div>
+                <div class="wx-main">?°C – ?°C</div>
+                <div class="wx-main">Rain chance: ?%</div>
+                <div class="wx-main">Wind: ?</div>
+                <div class="wx-main">UV max: ?</div>
+              </article>
+            `);
+            gridEl.innerHTML = cards.join('');
+            statusEl.textContent = 'Showing fixed dates 12–14 June; forecast feed temporarily unavailable.';
           });
       })();
     </script>
