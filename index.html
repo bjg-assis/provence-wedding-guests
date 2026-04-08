@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Josefine & Ben — Provence Wedding</title>
+    <meta
+      name="description"
+      content="Guest information page for Josefine and Ben's wedding in Provence, France on 13 June 2026."
+    />
+    <style>
+      :root {
+        --bg: #fffdf8;
+        --card: #ffffff;
+        --ink: #1f2430;
+        --muted: #5f6777;
+        --accent: #7b4f2f;
+        --accent-soft: #f2e5d9;
+        --line: #eadfce;
+        --ok: #336640;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 0%, #f8efdf 0%, rgba(248, 239, 223, 0) 38%),
+          radial-gradient(circle at 85% 10%, #f4e6d4 0%, rgba(244, 230, 212, 0) 42%),
+          var(--bg);
+        line-height: 1.5;
+      }
+
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .hero {
+        background: linear-gradient(130deg, #fff 0%, #f9f1e6 100%);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 42px 28px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.05;
+      }
+
+      .subtitle {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .pill {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border: 1px solid #e6d3bf;
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+
+      .span-6 { grid-column: span 6; }
+      .span-12 { grid-column: span 12; }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+      }
+
+      p, li { color: var(--muted); }
+      ul { margin: 8px 0 0 18px; }
+
+      a {
+        color: var(--accent);
+        text-decoration-thickness: 1px;
+      }
+
+      .timeline li {
+        margin-bottom: 10px;
+      }
+
+      .ok {
+        color: var(--ok);
+        font-weight: 600;
+      }
+
+      .footer {
+        margin-top: 18px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 760px) {
+        .span-6 { grid-column: span 12; }
+        .hero { padding: 30px 20px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <h1>Josefine &amp; Ben</h1>
+        <p class="subtitle">
+          We’re getting married in Provence and can’t wait to celebrate with you.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Saturday, 13 June 2026</span>
+          <span class="pill">Château Les Oliviers de Salettes, Provence</span>
+          <span class="pill">Crona-Langridge</span>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card span-6">
+          <h2>Wedding Essentials</h2>
+          <ul>
+            <li><strong>Date:</strong> 13 June 2026</li>
+            <li><strong>Location:</strong> Château Les Oliviers de Salettes, Provence, France</li>
+            <li><strong>Ceremony style:</strong> Intimate and camera/phone-free</li>
+            <li><strong>Celebrant:</strong> Markus</li>
+          </ul>
+        </article>
+
+        <article class="card span-6">
+          <h2>Where to RSVP &amp; Updates</h2>
+          <p>
+            For official RSVP flow, registry details, and latest logistics, please use the Joy website:
+          </p>
+          <p>
+            <a href="https://withjoy.com/josefine-and-ben/" target="_blank" rel="noopener noreferrer">
+              withjoy.com/josefine-and-ben
+            </a>
+          </p>
+          <p class="ok">This page is a guest-friendly summary based on current planning notes.</p>
+        </article>
+
+        <article class="card span-12">
+          <h2>Ceremony Notes</h2>
+          <ul>
+            <li>Josefine and Ben will walk in together.</li>
+            <li>Readings will be by Lucy and Becky.</li>
+            <li>Music plan includes Max Richter and Natalie Cole.</li>
+            <li>After the ceremony, the couple will take photos in the lavender fields while guests enjoy drinks by the pool.</li>
+          </ul>
+        </article>
+
+        <article class="card span-6">
+          <h2>Wedding Flow (timings to be confirmed)</h2>
+          <ul class="timeline">
+            <li><strong>Guest arrival</strong> — welcome and seating</li>
+            <li><strong>Ceremony</strong> — phone-free celebration</li>
+            <li><strong>Poolside drinks</strong> — while couple photos take place</li>
+            <li><strong>Dinner &amp; evening celebration</strong> — details shared via Joy</li>
+          </ul>
+        </article>
+
+        <article class="card span-6">
+          <h2>Travel &amp; Stay</h2>
+          <ul>
+            <li>Provence wedding weekend: June 2026</li>
+            <li>A May site visit is planned to finalize practical details</li>
+            <li>Final transport, accommodation guidance, and local recommendations will be published on Joy</li>
+          </ul>
+        </article>
+
+        <article class="card span-12">
+          <h2>Kind Requests for Guests</h2>
+          <ul>
+            <li>Please keep phones and cameras away during the ceremony.</li>
+            <li>Check the Joy page before travel for any final updates.</li>
+            <li>If in doubt on the day, ask the wedding planner team on site.</li>
+          </ul>
+        </article>
+      </section>
+
+      <p class="footer">
+        With love, Josefine &amp; Ben • Provence 2026
+      </p>
+    </main>
+  </body>
+</html>
