@@ -6,20 +6,20 @@
     <title>Josefine & Ben — Provence Wedding Weekend</title>
     <meta
       name="description"
-      content="Guest information page for Josefine and Ben's wedding weekend in Provence, France (12–14 June 2026)."
+      content="Guest guide for Josefine and Ben's Provence wedding weekend: schedule, weather, travel, dress code, and contacts."
     />
     <style>
       :root {
-        --bg: #f7f4ee;
+        --bg: #f6f2ea;
         --surface: #ffffff;
         --surface-soft: #fbf8f3;
-        --ink: #25221d;
-        --muted: #6e665b;
-        --line: #ddd3c4;
-        --accent: #7d6a4f;
-        --accent-strong: #6c593f;
-        --accent-soft: #efe7dc;
-        --ok: #2f6a45;
+        --ink: #24211d;
+        --muted: #6f675b;
+        --line: #ddd2c1;
+        --accent: #7b674c;
+        --accent-strong: #625039;
+        --accent-soft: #efe6d9;
+        --ok: #2f6b45;
       }
 
       * { box-sizing: border-box; }
@@ -27,15 +27,11 @@
 
       body {
         margin: 0;
-        background: radial-gradient(circle at 20% -10%, #f1e8db 0%, transparent 35%), var(--bg);
         color: var(--ink);
-        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-      }
-
-      .wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 14px;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background:
+          radial-gradient(circle at 15% -5%, #efe5d7 0%, rgba(239, 229, 215, 0) 40%),
+          var(--bg);
       }
 
       .serif {
@@ -43,14 +39,20 @@
         letter-spacing: 0.01em;
       }
 
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 14px;
+      }
+
       .nav-shell {
         position: sticky;
         top: 0;
-        z-index: 40;
+        z-index: 60;
         border: 1px solid var(--line);
         border-radius: 12px;
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(6px);
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(7px);
         margin-bottom: 14px;
       }
 
@@ -63,17 +65,35 @@
       }
 
       .brand {
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: var(--accent-strong);
         font-weight: 700;
+      }
+
+      .topbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .rsvp-btn {
+        text-decoration: none;
+        border: 1px solid #d7cab6;
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+        border-radius: 999px;
+        padding: 7px 11px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        white-space: nowrap;
       }
 
       .menu-btn {
         display: none;
         border: 1px solid var(--line);
-        background: var(--surface);
+        background: #fff;
         color: var(--accent-strong);
-        border-radius: 8px;
+        border-radius: 9px;
         padding: 7px 10px;
         font-size: 0.9rem;
         font-weight: 600;
@@ -89,7 +109,7 @@
       .nav-links a {
         text-decoration: none;
         color: var(--accent-strong);
-        border: 1px solid #d9cdb9;
+        border: 1px solid #d8ccb8;
         background: var(--accent-soft);
         border-radius: 999px;
         padding: 8px 12px;
@@ -106,19 +126,20 @@
       }
 
       .hero-image {
-        position: relative;
+        background: #ece2d4;
       }
 
       .hero-image img {
         width: 100%;
         display: block;
-        max-height: 620px;
+        max-height: 62vh;
+        min-height: 240px;
         object-fit: cover;
       }
 
       .hero-copy {
         padding: 22px 20px 24px;
-        background: linear-gradient(180deg, #fff, #faf5ee);
+        background: linear-gradient(180deg, #fff, #faf4eb);
       }
 
       h1 {
@@ -131,7 +152,7 @@
         margin: 10px 0 0;
         color: var(--muted);
         max-width: 70ch;
-        line-height: 1.5;
+        line-height: 1.52;
       }
 
       .pill-row {
@@ -143,12 +164,18 @@
 
       .pill {
         background: var(--accent-soft);
-        border: 1px solid #dccfbc;
         color: var(--accent-strong);
+        border: 1px solid #dccfbc;
         border-radius: 999px;
         padding: 7px 11px;
-        font-size: 0.88rem;
+        font-size: 0.86rem;
         font-weight: 600;
+      }
+
+      .countdown {
+        margin-top: 12px;
+        font-size: 0.92rem;
+        color: var(--muted);
       }
 
       .section {
@@ -161,7 +188,7 @@
 
       h2 {
         margin: 0 0 10px;
-        font-size: 1.25rem;
+        font-size: 1.26rem;
       }
 
       p, li {
@@ -169,12 +196,19 @@
         line-height: 1.56;
       }
 
-      .small { font-size: 0.92rem; }
-      .ok { color: var(--ok); font-weight: 600; }
+      .small {
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .ok {
+        color: var(--ok);
+        font-weight: 600;
+      }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
+        grid-template-columns: repeat(12, minmax(0, 1fr));
         gap: 10px;
       }
 
@@ -183,6 +217,11 @@
         border-radius: 12px;
         background: var(--surface-soft);
         padding: 14px;
+      }
+
+      .card.sat {
+        border: 2px solid #cdb99b;
+        background: #fffdf8;
       }
 
       .span-4 { grid-column: span 4; }
@@ -195,9 +234,19 @@
         font-weight: 700;
       }
 
+      .callout {
+        margin-top: 10px;
+        border: 1px solid #d9ccb9;
+        border-radius: 10px;
+        padding: 10px;
+        background: #fff9ef;
+        color: #5f513f;
+        font-size: 0.9rem;
+      }
+
       .weather-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
         gap: 10px;
         margin-top: 10px;
       }
@@ -210,7 +259,7 @@
       }
 
       .wx-title { font-weight: 700; color: var(--ink); }
-      .wx-main { margin-top: 4px; font-size: 0.95rem; color: var(--muted); }
+      .wx-main { margin-top: 4px; font-size: 0.94rem; color: var(--muted); }
 
       .lavender {
         border-radius: 14px;
@@ -222,7 +271,7 @@
       .lavender img {
         width: 100%;
         display: block;
-        max-height: 380px;
+        max-height: 360px;
         object-fit: cover;
       }
 
@@ -232,29 +281,39 @@
       }
 
       .footer {
-        margin: 18px 0 8px;
         text-align: center;
         color: var(--muted);
         font-size: 0.92rem;
+        margin: 18px 0 8px;
       }
 
-      @media (max-width: 860px) {
+      @media (max-width: 900px) {
         .span-4, .span-6 { grid-column: span 12; }
       }
 
       @media (max-width: 760px) {
         .menu-btn { display: inline-block; }
+        .rsvp-btn { font-size: 0.78rem; }
+
         .nav-links {
           display: none;
           flex-direction: column;
           padding: 0 12px 12px;
         }
+
         .nav-links.open { display: flex; }
+
         .nav-links a {
-          border-radius: 10px;
           width: 100%;
           text-align: center;
+          border-radius: 10px;
+          padding: 10px 12px;
         }
+      }
+
+      @media (max-width: 420px) {
+        .weather-grid { grid-template-columns: 1fr; }
+        .hero-copy { padding: 18px 16px 20px; }
       }
     </style>
   </head>
@@ -263,35 +322,36 @@
       <nav class="nav-shell" aria-label="Section menu">
         <div class="topbar">
           <div class="brand serif">Josefine &amp; Ben — Provence</div>
-          <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu-links">Menu</button>
+          <div class="topbar-actions">
+            <a class="rsvp-btn" href="https://withjoy.com/josefine-and-ben/" target="_blank" rel="noopener noreferrer">RSVP &amp; Updates ↗</a>
+            <button id="menu-btn" class="menu-btn" aria-expanded="false" aria-controls="menu-links">Menu</button>
+          </div>
         </div>
         <div id="menu-links" class="nav-links">
           <a href="#schedule">Schedule</a>
-          <a href="#weather">Weather forecast</a>
-          <a href="#travel">Travel to/from venue</a>
+          <a href="#weather">Weather</a>
+          <a href="#travel">Travel</a>
           <a href="#dress">Dress code</a>
-          <a href="#contacts">Venue contacts</a>
+          <a href="#contacts">Contacts</a>
+          <a href="#faq">FAQ</a>
         </div>
       </nav>
 
       <section class="hero">
         <div class="hero-image">
-          <img src="./assets/hero-couple.jpg" alt="Josefine and Ben together" />
+          <img src="./assets/hero-couple.jpg" alt="Josefine and Ben together" loading="eager" onerror="this.style.display='none'" />
         </div>
         <div class="hero-copy">
           <h1 class="serif">Provence Wedding Weekend</h1>
           <p class="subtitle">
-            We’re so excited to celebrate with you in the South of France. Here is everything you need in one place.
+            We’re so excited to celebrate with you in the South of France. This page has the practical information you’ll need before you arrive and during the weekend.
           </p>
           <div class="pill-row">
             <span class="pill">Friday 12 June – Sunday 14 June 2026</span>
             <span class="pill">Wedding day: Saturday 13 June</span>
             <span class="pill">Château Les Oliviers de Salettes</span>
           </div>
-          <p class="small" style="margin-top:12px;">
-            Official RSVP and master updates:
-            <a href="https://withjoy.com/josefine-and-ben/" target="_blank" rel="noopener noreferrer">withjoy.com/josefine-and-ben</a>
-          </p>
+          <p id="countdown" class="countdown"></p>
         </div>
       </section>
 
@@ -301,44 +361,47 @@
           <article class="card span-4">
             <p class="day">Friday — 12 June</p>
             <ul>
-              <li>Guest arrivals and check-in</li>
-              <li>Welcome gathering / drinks (early evening)</li>
-              <li>Relaxed dinner and catch-up</li>
+              <li><strong>From 16:00</strong> — Guest arrivals and check-in</li>
+              <li><strong>19:00</strong> — Welcome drinks</li>
+              <li><strong>20:00</strong> — Relaxed dinner and catch-up</li>
             </ul>
           </article>
 
-          <article class="card span-4">
+          <article class="card sat span-4">
             <p class="day">Saturday — 13 June (Wedding Day)</p>
             <ul>
-              <li>Ceremony (camera/phone-free)</li>
-              <li>Poolside drinks after ceremony</li>
-              <li>Dinner and evening celebration</li>
+              <li><strong>15:30</strong> — Guests seated</li>
+              <li><strong>16:00</strong> — Ceremony</li>
+              <li><strong>17:00</strong> — Poolside drinks & photos</li>
+              <li><strong>19:30</strong> — Dinner & speeches</li>
+              <li><strong>22:00 onwards</strong> — Evening celebration</li>
             </ul>
+            <div class="callout">Camera/phone-free ceremony — thank you for being fully present with us.</div>
           </article>
 
           <article class="card span-4">
             <p class="day">Sunday — 14 June</p>
             <ul>
-              <li>Farewell breakfast / brunch</li>
-              <li>Guest departures throughout the day</li>
+              <li><strong>09:30</strong> — Farewell breakfast / brunch</li>
+              <li><strong>11:30</strong> — Check-out</li>
+              <li><strong>12:00 onwards</strong> — Departures</li>
             </ul>
           </article>
         </div>
-        <p class="small" style="margin-top:10px;">Final timings are confirmed via Joy.</p>
+        <p class="small" style="margin-top:10px;">Times are planning times and may shift slightly. Final confirmation will be posted on Joy.</p>
       </section>
 
       <section id="weather" class="section">
         <h2 class="serif">Live weather forecast</h2>
         <p class="small">
-          This section now shows a working live forecast.
-          <span class="ok">Note:</span> Open-Meteo only provides reliable short-range forecast windows, so wedding-weekend specific weather will automatically appear once we are close enough.
+          Forecast is live from Open-Meteo. Because long-range forecasts are limited, this section automatically shows short-range local weather now and then switches to the wedding weekend forecast when it becomes available.
         </p>
         <p id="weather-status" class="small">Loading forecast…</p>
         <div id="weather-grid" class="weather-grid"></div>
       </section>
 
       <section class="lavender" aria-label="Lavender in Provence">
-        <img src="./assets/lavender.jpg" alt="Lavender fields in Provence" />
+        <img src="./assets/lavender.jpg" alt="Lavender fields in Provence" loading="lazy" />
       </section>
 
       <section id="travel" class="section">
@@ -352,28 +415,27 @@
             </p>
             <ul>
               <li>
-                Google Maps:
-                <a href="https://maps.app.goo.gl/DrrECM8PPAr2NZ4LA?g_st=ic" target="_blank" rel="noopener noreferrer">Open location</a>
+                Maps:
+                <a href="https://maps.app.goo.gl/DrrECM8PPAr2NZ4LA?g_st=ic" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
               </li>
               <li>
-                Venue website:
+                Venue site:
                 <a href="https://www.chateaulesoliviersdesalettes.com/" target="_blank" rel="noopener noreferrer">chateaulesoliviersdesalettes.com</a>
               </li>
-              <li>
-                Venue phone: <a href="tel:+33475001930">+33 4 75 00 19 30</a>
-              </li>
+              <li>Venue phone: <a href="tel:+33475001930">+33 4 75 00 19 30</a></li>
             </ul>
           </article>
 
           <article class="card span-6">
-            <p class="day">Transfers, taxis & shuttle options</p>
+            <p class="day">Getting from the UK</p>
             <ul>
+              <li><strong>Lyon (LYS)</strong> — typically the easiest option (~1h50 drive)</li>
+              <li><strong>Avignon (AVN)</strong> — alternative option (~1h15 drive)</li>
+              <li>Car hire is recommended for rural Provence logistics</li>
               <li>
-                If you’d like to arrange a private taxi or shuttle, you can book via:
+                For private taxi/shuttle transfers, use
                 <a href="https://www.transfeero.com/" target="_blank" rel="noopener noreferrer">Transfeero</a>
               </li>
-              <li>By car is generally easiest for rural Provence logistics.</li>
-              <li>If booking return transfers on Sunday, leave buffer time for country roads.</li>
             </ul>
           </article>
         </div>
@@ -393,9 +455,9 @@
           <article class="card span-6">
             <p class="day">Practical notes</p>
             <ul>
-              <li>Warm daytime temperatures are likely in June.</li>
-              <li>Evenings may cool down — light layers recommended.</li>
-              <li>Some outdoor paths are gravel/stone, so choose footwear accordingly.</li>
+              <li>Warm daytime temperatures are likely in June</li>
+              <li>Evenings can cool down — light layers recommended</li>
+              <li>Some outdoor areas are gravel/stone, so choose footwear accordingly</li>
             </ul>
           </article>
         </div>
@@ -410,15 +472,37 @@
               <li><strong>Wedding planner:</strong> Anaïs</li>
               <li><strong>Ceremony celebrant:</strong> Markus</li>
               <li><strong>Readings:</strong> Lucy &amp; Becky</li>
+              <li><strong>Venue front desk:</strong> <a href="tel:+33475001930">+33 4 75 00 19 30</a></li>
             </ul>
           </article>
           <article class="card span-6">
-            <p class="day">Venue & catering liaison</p>
+            <p class="day">Catering & venue liaison</p>
             <ul>
               <li>Mathys Gueyne — <a href="mailto:mathys.gueyne@the-social-club.com">mathys.gueyne@the-social-club.com</a></li>
               <li>Laura Courbet — <a href="mailto:laura.courbet@the-social-club.com">laura.courbet@the-social-club.com</a></li>
-              <li>Venue phone — <a href="tel:+33475001930">+33 4 75 00 19 30</a></li>
             </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <h2 class="serif">FAQ</h2>
+        <div class="grid">
+          <article class="card span-6">
+            <p class="day">Dietary requirements</p>
+            <p class="small">Please share dietary requirements in advance via the RSVP/updates page on Joy.</p>
+          </article>
+          <article class="card span-6">
+            <p class="day">Phones during ceremony</p>
+            <p class="small">The ceremony is camera/phone-free. You’ll have plenty of photo opportunities afterwards.</p>
+          </article>
+          <article class="card span-6">
+            <p class="day">What should I pack?</p>
+            <p class="small">Light formalwear, evening layer, comfortable shoes for outdoor paths, and sun protection.</p>
+          </article>
+          <article class="card span-6">
+            <p class="day">Where do I find final updates?</p>
+            <p class="small">All final updates and RSVP details are on <a href="https://withjoy.com/josefine-and-ben/" target="_blank" rel="noopener noreferrer">Joy</a>.</p>
           </article>
         </div>
       </section>
@@ -427,7 +511,7 @@
     </main>
 
     <script>
-      // Mobile menu
+      // Mobile nav
       (function mobileMenu() {
         const btn = document.getElementById('menu-btn');
         const links = document.getElementById('menu-links');
@@ -444,6 +528,16 @@
             btn.setAttribute('aria-expanded', 'false');
           });
         });
+      })();
+
+      // Countdown
+      (function countdown() {
+        const el = document.getElementById('countdown');
+        if (!el) return;
+        const weddingStart = new Date('2026-06-12T00:00:00');
+        const now = new Date();
+        const days = Math.ceil((weddingStart - now) / (1000 * 60 * 60 * 24));
+        el.textContent = days > 0 ? `${days} days to go 🥂` : 'See you in Provence!';
       })();
 
       // Weather
@@ -471,6 +565,25 @@
           95: 'Thunderstorm'
         };
 
+        const weatherIconMap = {
+          0: '☀️',
+          1: '🌤️',
+          2: '⛅',
+          3: '☁️',
+          45: '🌫️',
+          48: '🌫️',
+          51: '🌧️',
+          53: '🌧️',
+          55: '🌧️',
+          61: '🌧️',
+          63: '🌧️',
+          65: '🌧️',
+          80: '🌦️',
+          81: '🌦️',
+          82: '🌧️',
+          95: '⛈️'
+        };
+
         function dayName(isoDate) {
           return new Date(isoDate + 'T12:00:00').toLocaleDateString('en-GB', {
             weekday: 'long', day: 'numeric', month: 'short'
@@ -486,11 +599,9 @@
 
         let url;
         if (daysToWedding <= 16) {
-          // close enough to event: fetch wedding-weekend specific dates
-          url = 'https://api.open-meteo.com/v1/forecast?latitude=' + venueLat + '&longitude=' + venueLon + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe%2FParis&start_date=2026-06-12&end_date=2026-06-14';
+          url = 'https://api.open-meteo.com/v1/forecast?latitude=' + venueLat + '&longitude=' + venueLon + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,windspeed_10m_max,uv_index_max&timezone=Europe%2FParis&start_date=2026-06-12&end_date=2026-06-14';
         } else {
-          // too early for fixed-date forecast: show live short-range forecast
-          url = 'https://api.open-meteo.com/v1/forecast?latitude=' + venueLat + '&longitude=' + venueLon + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=3&timezone=Europe%2FParis';
+          url = 'https://api.open-meteo.com/v1/forecast?latitude=' + venueLat + '&longitude=' + venueLon + '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,windspeed_10m_max,uv_index_max&forecast_days=3&timezone=Europe%2FParis';
         }
 
         fetch(url)
@@ -504,16 +615,22 @@
 
             const cards = d.time.map((date, i) => {
               const code = d.weather_code?.[i];
+              const icon = weatherIconMap[code] || '❓';
               const desc = weatherCodeMap[code] || 'Forecast unavailable';
               const tMax = d.temperature_2m_max?.[i];
               const tMin = d.temperature_2m_min?.[i];
               const rain = d.precipitation_probability_max?.[i];
+              const wind = d.windspeed_10m_max?.[i];
+              const uv = d.uv_index_max?.[i];
+
               return `
                 <article class="weather-card">
-                  <div class="wx-title">${dayName(date)}</div>
+                  <div class="wx-title">${icon} ${dayName(date)}</div>
                   <div class="wx-main">${desc}</div>
                   <div class="wx-main">${Math.round(tMin)}°C – ${Math.round(tMax)}°C</div>
                   <div class="wx-main">Rain chance: ${rain ?? '?'}%</div>
+                  <div class="wx-main">Wind: ${wind ? Math.round(wind) + ' km/h' : '?'}</div>
+                  <div class="wx-main">UV max: ${uv ?? '?'}</div>
                 </article>
               `;
             });
@@ -523,7 +640,7 @@
             if (daysToWedding <= 16) {
               statusEl.textContent = 'Wedding-weekend forecast loaded.';
             } else {
-              statusEl.textContent = 'Live short-range forecast loaded (wedding-weekend dates will appear automatically when in range).';
+              statusEl.textContent = 'Live short-range forecast loaded (wedding-weekend forecast will appear automatically when in range).';
             }
             statusEl.classList.add('ok');
           })
